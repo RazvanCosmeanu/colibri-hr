@@ -1,0 +1,13 @@
+@use 'styles/colors';
+
+.error-bag {
+  .error-item:first-letter {
+    text-transform: capitalize;
+  }
+
+  .invalid-feedback {
+    color: $error-color;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,1 +1,43 @@
+@use 'styles/colors';
 
+.app {
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    a {
+      padding: 16px 25px;
+
+      &:last-child {
+        padding-right: 0px;
+      }
+    }
+
+    .logo {
+      padding: 16px 0px;
+      color: colors.$secondary-color;
+      display: block;
+      line-height: 30px;
+
+      .logo-image {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+        fill: colors.$primary-color;
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+    }
+  }
+
+  #content {
+    flex-grow: 1;
+    overflow: auto;
+    height: 100%;
+  }
+}

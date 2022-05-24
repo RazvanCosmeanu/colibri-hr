@@ -1,19 +1,26 @@
 import './App.scss';
+import { ReactComponent as Logo } from './assets/logo.svg';
 
 import { Navigate, Route, Routes } from 'react-router';
 import StaffRoutes from './modules/staff/routes';
 import StatsRoutes from './modules/stats/routes';
+import { NavLink } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='app'>
+    <div className='app container'>
       <header className='app-header'>
-        <a className='home-link' href='/staff'>
+        <a className='home-link logo' href='/staff'>
+          <Logo className='logo-image' />
           Colibri HR
         </a>
         <nav id='main-nav'>
-          <a href='/staff'>Staff</a>
-          <a href='/stats'>Stats</a>
+          <NavLink className='link' to='/staff'>
+            Staff
+          </NavLink>
+          <NavLink className='link' to='/stats'>
+            Stats
+          </NavLink>
         </nav>
       </header>
       <section id='content'>
