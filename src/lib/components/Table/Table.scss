@@ -1,0 +1,53 @@
+@use 'src/styles/colors';
+
+.table-component {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+
+  .table-row {
+    display: table-row;
+
+    &.table-header {
+      border-bottom: 1px solid colors.$text-color-light;
+
+      .table-cell {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        color: colors.$tertiary-color;
+      }
+
+      .header-button {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+
+        .sort-icon {
+          display: inline-block;
+          margin-left: 8px;
+          color: colors.$text-color-medium;
+
+          &.active {
+            color: colors.$text-color-light;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      border-bottom: 1px solid colors.$text-color-light;
+    }
+  }
+
+  .table-cell {
+    display: table-cell;
+    padding: 4px 0px;
+    vertical-align: middle;
+    color: colors.$text-color-dark;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+}

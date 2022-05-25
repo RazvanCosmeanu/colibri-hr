@@ -1,4 +1,4 @@
-@use 'styles/colors';
+@use '../../../styles/colors';
 
 .error-bag {
   .error-item:first-letter {
@@ -6,7 +6,7 @@
   }
 
   .invalid-feedback {
-    color: $error-color;
+    color: colors.$error-color;
     font-size: 13px;
     margin-bottom: 20px;
   }

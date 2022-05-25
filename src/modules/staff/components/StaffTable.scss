@@ -1,0 +1,14 @@
+.staff-table {
+  .actions-cell {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      margin-left: 12px;
+    }
+  }
+
+  .actions-header {
+    text-align: end;
+  }
+}

@@ -79,7 +79,8 @@ a {
   color: #303233;
   line-height: 30px;
 
-  &.active {
+  &.active,
+  &:hover {
     color: colors.$primary-color;
   }
 }

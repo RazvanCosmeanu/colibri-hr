@@ -1,0 +1,18 @@
+@use '../../../styles/colors';
+
+.search-input-container {
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: colors.$tertiary-color;
+  }
+
+  .search-input {
+    &::placeholder {
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 22px;
+    }
+  }
+}

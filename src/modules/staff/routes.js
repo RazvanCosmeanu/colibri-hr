@@ -9,8 +9,8 @@ export default function StaffRoutes() {
   return (
     <Route path='/staff' element={<StaffLayout />}>
       <Route index element={<StaffList />} />
-      <Route path=':id(\d+)' exact element={<StaffView />} />
-      <Route path=':id(\d+)/edit' exact element={<StaffEdit />} />
+      <Route path=':id' element={<StaffView />} />
+      <Route path=':id/edit' element={<StaffEdit />} />
     </Route>
   );
 }
