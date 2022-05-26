@@ -1,10 +1,16 @@
 @use 'styles/colors';
 
 .app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   .app-header {
+    flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    width: 100%;
 
     a {
       padding: 16px 25px;
@@ -36,8 +42,7 @@
   }
 
   #content {
-    flex-grow: 1;
     overflow: auto;
-    height: 100%;
+    margin-bottom: 22px;
   }
 }

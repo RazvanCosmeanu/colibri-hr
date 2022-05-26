@@ -8,8 +8,8 @@ import { NavLink } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='app container'>
-      <header className='app-header'>
+    <div className='app'>
+      <header className='app-header container'>
         <a className='home-link logo' href='/staff'>
           <Logo className='logo-image' />
           Colibri HR
@@ -23,7 +23,7 @@ function App() {
           </NavLink>
         </nav>
       </header>
-      <section id='content'>
+      <section id='content' className='container'>
         {/* react-router-dom v6 doesn't allow for route composition so we have to use the separate routes as plain functions */}
         <Routes>
           {StaffRoutes()}

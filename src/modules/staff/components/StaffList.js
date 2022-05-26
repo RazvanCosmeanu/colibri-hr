@@ -110,17 +110,19 @@ const data = [
 
 export default function StaffList() {
   return (
-    <div className='table-container staff-list'>
-      <section className='table-controls'>
-        <SearchInput onChange={log} />
-        <div className='table-pagination'>
-          <Button>{'< Previous'}</Button>
-          <Button>{'Next >'}</Button>
-        </div>
-      </section>
-      <section className='table'>
-        <StaffTable data={data} setSortBy={log} />
-      </section>
-    </div>
+    <section id='staff-list'>
+      <div className='table-container'>
+        <section className='table-controls'>
+          <SearchInput onChange={log} />
+          <div className='table-pagination'>
+            <Button>{'< Previous'}</Button>
+            <Button>{'Next >'}</Button>
+          </div>
+        </section>
+        <section className='table'>
+          <StaffTable data={data} setSortBy={log} />
+        </section>
+      </div>
+    </section>
   );
 }

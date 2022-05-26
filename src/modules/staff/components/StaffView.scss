@@ -1,0 +1,50 @@
+@use 'src/styles/colors';
+
+#staff-view {
+  .staff-view-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .staff-view-header {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      a {
+        font-size: 22px;
+        color: colors.$primary-color;
+        margin-left: 12px;
+      }
+
+      .staff-view-id {
+        color: colors.$tertiary-color;
+        margin-right: 12px;
+      }
+    }
+
+    .staff-view-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      margin-bottom: 12px;
+      font-size: 20px;
+
+      svg {
+        height: 25px;
+        width: 25px;
+        fill: colors.$primary-color;
+        margin-right: 12px;
+      }
+    }
+
+    .staff-view-actions {
+      margin-top: 44px;
+
+      button {
+        margin-right: 12px;
+      }
+    }
+  }
+}

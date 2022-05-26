@@ -1,0 +1,38 @@
+@use 'src/styles/colors';
+
+.graph-component {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  border-left: 1px solid colors.$tertiary-color;
+  border-bottom: 1px solid colors.$tertiary-color;
+  padding: 12px 0px 12px 12px;
+
+  .graph-entry {
+    margin-bottom: 12px;
+    display: flex;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    .graph-key {
+      width: 20%;
+    }
+
+    .graph-value-container {
+      flex-grow: 1;
+    }
+
+    .graph-value {
+      height: 30px;
+      background-color: colors.$primary-color;
+
+      &:hover {
+        cursor: pointer;
+        background-color: colors.$tertiary-color;
+      }
+    }
+  }
+}

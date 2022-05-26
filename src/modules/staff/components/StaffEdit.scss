@@ -1,0 +1,19 @@
+#staff-edit {
+  .form-row {
+    width: 40%;
+    margin-bottom: 22px;
+  }
+
+  input {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .form-actions {
+    display: flex;
+
+    button {
+      margin-right: 22px;
+    }
+  }
+}
