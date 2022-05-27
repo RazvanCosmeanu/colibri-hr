@@ -10,7 +10,7 @@ export default function StaffList() {
   const vm = useStaffList();
 
   return (
-    <section id='staff-list'>
+    <section id='staff-list' data-testid='staff-list'>
       <div className='table-container'>
         <section className='table-controls'>
           <SearchInput onChange={vm.userSearchesStaff} value={vm.query} />

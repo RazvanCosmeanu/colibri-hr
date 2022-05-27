@@ -32,8 +32,6 @@ const getAverageAgePerIndustry = (staff) => {
   }, {});
 
   const data = Object.keys(agesPerIndustry).reduce((acc, curr) => {
-    console.log('curr', curr);
-
     acc[curr] = Math.round(
       agesPerIndustry[curr].ages / agesPerIndustry[curr].entriesLength,
     );

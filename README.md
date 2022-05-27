@@ -19,3 +19,10 @@ This project has been initiated with [create-react-app](https://github.com/faceb
 ## Building for production
 
 `$ npm build` will create an optimized build, ready for production. More details [here](docs/README.md).
+
+## Screenshots
+
+![Home Screen](docs/screenshots/home.png)
+![Edit Screen](docs/screenshots/edit.png)
+![Details Screen](docs/screenshots/view.png)
+![Stats Screen](docs/screenshots/stats.png)

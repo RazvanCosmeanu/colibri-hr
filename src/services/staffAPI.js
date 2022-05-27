@@ -30,15 +30,11 @@ const updateStaffMember = (payload) =>
   fetchStaff().then((currentData) => {
     const newData = currentData.map((staffMember) => {
       if (staffMember.id === payload.id) {
-        console.log('found my member', staffMember, payload);
         return Object.assign({}, payload);
       }
 
       return staffMember;
     });
-
-    console.log('NEW DATA HERE', newData);
-
     setMemo(newData);
   });
 
