@@ -40,7 +40,7 @@ const useStaffView = () => {
     staffService.fetchStaffMember(params.id).then((staffMember) => {
       setData(toVMData(staffMember));
     });
-  }, []);
+  }, [params.id]);
 
   const userClicksBackButton = () => navigate('/staff');
   const userClicksEditButton = () => navigate(`/staff/${params.id}/edit`);

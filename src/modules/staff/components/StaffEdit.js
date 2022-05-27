@@ -3,27 +3,23 @@ import './StaffEdit.scss';
 import Button from '../../../lib/components/Button/Button';
 import Input from '../../../lib/components/Input/Input';
 
-const data = {
-  id: 10,
-  firstName: 'Goldia',
-  lastName: 'Axelby',
-  email: 'gaxelby9@bizjournals.com',
-  dateOfBirth: '06/05/1986',
-  industry: 'Business Services',
-  salary: 58835.13,
-  experience: 6.9,
-};
+import useStaffEdit from '../useStaffEdit';
 
 export default function StaffEdit() {
+  const vm = useStaffEdit();
+
   return (
     <section id='staff-edit'>
-      <form noValidate>
+      <h5>Edit Staff Member #{vm.id}</h5>
+      <form>
         <div className='form-row'>
           <Input
             label='First Name'
             type='text'
             name='firstName'
-            value={data.firstName}
+            value={vm.data.firstName.value}
+            onChange={vm.userTypesFirstName}
+            errors={vm.data.firstName.errors}
           />
         </div>
         <div className='form-row'>
@@ -31,18 +27,29 @@ export default function StaffEdit() {
             label='Last Name'
             type='text'
             name='lastName'
-            value={data.lastName}
+            value={vm.data.lastName.value}
+            onChange={vm.userTypesLastName}
+            errors={vm.data.lastName.errors}
           />
         </div>
         <div className='form-row'>
-          <Input label='Email' type='email' name='email' value={data.email} />
+          <Input
+            label='Email'
+            type='email'
+            name='email'
+            value={vm.data.email.value}
+            onChange={vm.userTypesEmail}
+            errors={vm.data.email.errors}
+          />
         </div>
         <div className='form-row'>
           <Input
-            label='Date of Birth'
+            label='Date of Birth (MM/DD/YY)'
             type='date'
             name='dateOfBirth'
-            value={data.dateOfBirth}
+            value={vm.data.dateOfBirth.value}
+            onChange={vm.userTypesDOB}
+            errors={vm.data.dateOfBirth.errors}
           />
         </div>
         <div className='form-row'>
@@ -50,7 +57,9 @@ export default function StaffEdit() {
             label='Industry'
             type='text'
             name='industry'
-            value={data.industry}
+            value={vm.data.industry.value}
+            onChange={vm.userTypesIndustry}
+            errors={vm.data.industry.errors}
           />
         </div>
         <div className='form-row'>
@@ -60,7 +69,9 @@ export default function StaffEdit() {
             name='salary'
             min='1'
             step='any'
-            value={data.salary}
+            value={vm.data.salary.value}
+            onChange={vm.userTypesSalary}
+            errors={vm.data.salary.errors}
           />
         </div>
         <div className='form-row'>
@@ -70,14 +81,22 @@ export default function StaffEdit() {
             name='experience'
             min='0'
             step='0.1'
-            value={data.experience}
+            value={vm.data.experience.value}
+            onChange={vm.userTypesExperience}
+            errors={vm.data.experience.errors}
           />
         </div>
-        <div className='form-row form-actions'>
-          <Button>Save</Button>
-          <Button>Cancel</Button>
-        </div>
       </form>
+      <div className='form-row form-actions'>
+        <Button
+          type='submit'
+          disabled={!vm.canUserClickSubmit}
+          onClick={vm.userClicksSubmit}
+        >
+          Save
+        </Button>
+        <Button onClick={vm.userClicksCancel}>Cancel</Button>
+      </div>
     </section>
   );
 }

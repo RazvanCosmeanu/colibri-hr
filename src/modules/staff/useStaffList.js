@@ -15,6 +15,7 @@ const useStaffList = () => {
     staffService.fetchStaff({ page: 1, query: '' }).then(setData);
   }, []);
 
+  // eslint-disable-next-line
   const debouncedSearch = useCallback(
     debounce((query) => {
       staffService.fetchStaff({ page: 1, query }).then(setData);

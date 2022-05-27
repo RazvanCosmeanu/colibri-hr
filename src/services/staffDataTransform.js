@@ -14,12 +14,26 @@ const toStaffMember = (member) => ({
   dateOfBirth: normalizeValue(member.date_of_birth),
   industry: normalizeValue(member.industry),
   salary: normalizeValue(member.salary),
-  yearsOfExperience: normalizeValue(member.years_of_experience),
+  experience: normalizeValue(member.years_of_experience),
+});
+
+const fromStaffMember = (member) => ({
+  id: member.id,
+  first_name: member.firstName,
+  last_name: member.lastName,
+  email: member.email,
+  date_of_birth: member.dateOfBirth,
+  industry: member.industry,
+  salary: member.salary,
+  years_of_experience: member.experience,
 });
 
 const normalizeStaffMembers = (staffList) => staffList.map(toStaffMember);
 
-export default {
+const staffDataTransform = {
   normalizeStaffMembers,
   toStaffMember,
+  fromStaffMember,
 };
+
+export default staffDataTransform;

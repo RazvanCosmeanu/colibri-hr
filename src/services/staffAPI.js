@@ -2,7 +2,7 @@ import http from '../lib/http';
 import log from '../lib/log';
 
 const STORAGE_KEY = 'COLIBRI_STORAGE';
-const API_URL = 'MOCK_DATA.json';
+const API_URL = '/MOCK_DATA.json';
 
 const getMemo = () => JSON.parse(localStorage.getItem(STORAGE_KEY));
 const setMemo = (data) =>
@@ -10,7 +10,6 @@ const setMemo = (data) =>
 
 const fetchStaff = (force) => {
   const store = getMemo();
-
   if (store && !force) {
     return Promise.resolve(store);
   }
@@ -23,19 +22,22 @@ const fetchStaff = (force) => {
 
 const fetchStaffMember = (id) =>
   fetchStaff().then((data) => {
-    const found = data.find((member) => member.id == id);
+    const found = data.find((member) => member.id === parseInt(id));
     return found || { id: 0 };
   });
 
-const updateStaffMember = (id, payload) =>
-  fetchStaffMember(id).then((currentData) => {
+const updateStaffMember = (payload) =>
+  fetchStaff().then((currentData) => {
     const newData = currentData.map((staffMember) => {
-      if (staffMember.id === id) {
-        return Object.assign({}, staffMember, payload);
+      if (staffMember.id == payload.id) {
+        console.log('found my member', staffMember, payload);
+        return Object.assign({}, payload);
       }
 
       return staffMember;
     });
+
+    console.log('NEW DATA HERE', newData);
 
     setMemo(newData);
   });

@@ -21,9 +21,13 @@ const fetchStaff = (reqObj) => {
 const fetchStaffMember = (id) =>
   staffAPI.fetchStaffMember(id).then(staffDataTransform.toStaffMember);
 
+const updateStaffMember = (payload) =>
+  staffAPI.updateStaffMember(staffDataTransform.fromStaffMember(payload));
+
 const staffService = {
   fetchStaff,
-  fetchStaffMember: logFn(fetchStaffMember),
+  fetchStaffMember,
+  updateStaffMember,
 };
 
 export default staffService;
