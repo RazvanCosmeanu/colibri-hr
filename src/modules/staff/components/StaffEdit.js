@@ -17,7 +17,7 @@ const data = {
 export default function StaffEdit() {
   return (
     <section id='staff-edit'>
-      <form novalidate>
+      <form noValidate>
         <div className='form-row'>
           <Input
             label='First Name'

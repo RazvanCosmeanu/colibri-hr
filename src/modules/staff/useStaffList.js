@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import debounce from '../../lib/debounce';
 import log from '../../lib/log';
 
@@ -7,7 +7,7 @@ import staffService from '../../services/staffService';
 const useStaffList = () => {
   const [data, setData] = useState({
     entries: [],
-    meta: { currentPage: 1, totalPages: 1, query: '' },
+    meta: { page: 1, totalPages: 1, query: '' },
   });
   const [query, setQuery] = useState('');
 
@@ -29,17 +29,13 @@ const useStaffList = () => {
   };
 
   const userClicksNextPage = () =>
-    staffService
-      .fetchStaff({ page: data.meta.currentPage + 1, query })
-      .then(setData);
+    staffService.fetchStaff({ page: data.meta.page + 1, query }).then(setData);
 
   const userClicksPrevPage = () =>
-    staffService
-      .fetchStaff({ page: data.meta.currentPage - 1, query })
-      .then(setData);
+    staffService.fetchStaff({ page: data.meta.page - 1, query }).then(setData);
 
-  const userCanClickNextPage = data.meta.currentPage < data.meta.totalPages;
-  const userCanClickPrevPage = data.meta.currentPage > 1;
+  const userCanClickNextPage = data.meta.page < data.meta.totalPages;
+  const userCanClickPrevPage = data.meta.page > 1;
 
   return {
     userSearchesStaff,

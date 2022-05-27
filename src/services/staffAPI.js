@@ -21,27 +21,29 @@ const fetchStaff = (force) => {
   });
 };
 
-const updateStaff = (id, payload) => {
-  const currentData = getMemo();
-
-  if (!currentData) {
-    return;
-  }
-
-  const newData = currentData.map((staffMember) => {
-    if (staffMember.id === id) {
-      return Object.assign(staffMember, payload);
-    }
-
-    return staffMember;
+const fetchStaffMember = (id) =>
+  fetchStaff().then((data) => {
+    const found = data.find((member) => member.id == id);
+    return found || { id: 0 };
   });
 
-  setMemo(newData);
-};
+const updateStaffMember = (id, payload) =>
+  fetchStaffMember(id).then((currentData) => {
+    const newData = currentData.map((staffMember) => {
+      if (staffMember.id === id) {
+        return Object.assign({}, staffMember, payload);
+      }
+
+      return staffMember;
+    });
+
+    setMemo(newData);
+  });
 
 const staffAPI = {
   fetchStaff,
-  updateStaff,
+  updateStaffMember,
+  fetchStaffMember,
 };
 
 export default staffAPI;

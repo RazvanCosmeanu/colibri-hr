@@ -3,7 +3,7 @@ import './StaffList.scss';
 import Button from '../../../lib/components/Button/Button';
 import SearchInput from '../../../lib/components/SearchInput/SearchInput';
 import StaffTable from './StaffTable';
-import log from '../../../lib/log';
+
 import useStaffList from '../useStaffList';
 
 export default function StaffList() {
