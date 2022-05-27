@@ -20,9 +20,20 @@ const fromDateInput = (date) => {
   return `${days}/${months}/${years}`;
 };
 
+const getAge = (dateOfBirth) => {
+  const dob = new Date(toDateInput(dateOfBirth));
+  const now = new Date();
+
+  // get years and subtract years since epoch to get the age
+  // it could have gone more complicated, with leap years and better precision
+  // but how about the weather
+  return Math.abs(new Date(now - dob.getTime()).getUTCFullYear() - 1970);
+};
+
 const dateUtils = {
   toDateInput,
   fromDateInput,
+  getAge,
 };
 
 export default dateUtils;

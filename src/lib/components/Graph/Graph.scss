@@ -19,6 +19,9 @@
 
     .graph-key {
       width: 20%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .graph-value-container {

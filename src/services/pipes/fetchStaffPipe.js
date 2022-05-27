@@ -9,13 +9,14 @@ export const DEFAULT_STAFF_RESPONSE = {
   },
 };
 
-const fetchStaffPipe = ({ page = 1, query = '', force }) =>
+const fetchStaffPipe = ({ page = 1, query = '', perPage = 10, force }) =>
   staffAPI.fetchStaff(force).then((entries = []) => ({
     entries,
     meta: {
       page,
       query,
       totalPages: 1,
+      perPage,
     },
   }));
 

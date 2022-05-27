@@ -1,5 +1,3 @@
-import { PER_PAGE } from '../../config';
-
 // we'll also get weird results if we type in property names, like first_name,
 // but, oh... how about the wonderful weather we're having
 
@@ -25,7 +23,9 @@ const filterStaffPipe = (staffResponse) => {
     entries: filteredEntries,
     meta: {
       ...staffResponse.meta,
-      totalPages: Math.ceil(filteredEntries.length / PER_PAGE),
+      totalPages: Math.ceil(
+        filteredEntries.length / staffResponse.meta.perPage,
+      ),
     },
   };
 };
