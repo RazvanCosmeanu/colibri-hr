@@ -18,7 +18,7 @@ function App() {
           <NavLink className='link' to='/staff'>
             Staff
           </NavLink>
-          <NavLink className='link' to='/stats'>
+          <NavLink className='link' to='/stats/average-age-industry'>
             Stats
           </NavLink>
         </nav>

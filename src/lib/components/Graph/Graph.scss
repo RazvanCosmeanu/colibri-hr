@@ -6,7 +6,6 @@
   position: relative;
 
   border-left: 1px solid colors.$tertiary-color;
-  border-bottom: 1px solid colors.$tertiary-color;
   padding: 12px 0px 12px 12px;
 
   .graph-entry {
@@ -25,7 +24,8 @@
     }
 
     .graph-value-container {
-      flex-grow: 1;
+      display: flex;
+      width: 100%;
     }
 
     .graph-value {

@@ -1,0 +1,24 @@
+@use 'src/styles/colors';
+
+#stats-page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .stats-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid colors.$primary-color;
+
+    a {
+      margin-right: 22px;
+    }
+  }
+
+  .content {
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    border-bottom: 1px solid colors.$primary-color;
+  }
+}

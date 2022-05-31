@@ -5,7 +5,7 @@ import staffService from './staffService';
 // also, maybe some of these would be faster with for loops and mutating state
 // but I find this easier to read, and we are familiar with the domain - 500 entries
 
-const getAverageAgePerIndustry = (staff) => {
+const calculateAverageAgePerIndustry = (staff) => {
   const agesPerIndustry = staff.reduce((acc, curr) => {
     const industry = curr.industry || 'Unknown';
 
@@ -39,10 +39,10 @@ const getAverageAgePerIndustry = (staff) => {
     return acc;
   }, {});
 
-  return { data, title: 'Average Age Per Industry' };
+  return { series: data, title: 'Average Age Per Industry' };
 };
 
-const getAverageSalaryPerIndustry = (staff) => {
+const calculateAverageSalaryPerIndustry = (staff) => {
   const salariesPerIndustry = staff.reduce((acc, curr) => {
     const industry = curr.industry || 'Unknown';
 
@@ -67,34 +67,30 @@ const getAverageSalaryPerIndustry = (staff) => {
   }, {});
 
   const data = Object.keys(salariesPerIndustry).reduce((acc, curr) => {
-    acc[curr] = Math.round(
+    acc[curr] = parseFloat(
       salariesPerIndustry[curr].salaries /
         salariesPerIndustry[curr].entriesLength,
-    );
+    ).toPrecision(10);
 
     return acc;
   }, {});
 
-  return { data, title: 'Average Salary Per Industry' };
+  return { series: data, title: 'Average Salary Per Industry' };
 };
 
-const fetchSeries = () => {
-  const staffList = staffService.fetchStaff({ perPage: 500 });
+const getAverageAgePerIndustry = () =>
+  staffService
+    .fetchStaff({ perPage: 500 })
+    .then(({ entries }) => calculateAverageAgePerIndustry(entries));
 
-  return staffList
-    .then(({ entries }) =>
-      Promise.all([
-        getAverageAgePerIndustry(entries),
-        getAverageSalaryPerIndustry(entries),
-      ]),
-    )
-    .then((series) => {
-      return series;
-    });
-};
+const getAverageSalaryPerIndustry = () =>
+  staffService
+    .fetchStaff({ perPage: 500 })
+    .then(({ entries }) => calculateAverageSalaryPerIndustry(entries));
 
 const statsService = {
-  fetchSeries,
+  getAverageAgePerIndustry,
+  getAverageSalaryPerIndustry,
 };
 
 export default statsService;

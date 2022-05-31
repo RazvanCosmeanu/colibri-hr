@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
+import log from '../../lib/log';
 import statsService from '../../services/statsService';
 
-const useStats = () => {
-  const [data, setData] = useState([]);
+const useStats = (statsFunc) => {
+  const [data, setData] = useState({ series: [], title: '' });
 
   useEffect(() => {
-    statsService.fetchSeries().then(setData);
+    statsService[statsFunc]().then(setData);
   }, []);
+
+  useEffect(() => {
+    log(data);
+  }, [data]);
 
   return {
     data,
