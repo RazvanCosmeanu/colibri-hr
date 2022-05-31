@@ -2,9 +2,9 @@ import './App.scss';
 import { ReactComponent as Logo } from './assets/logo.svg';
 
 import { Navigate, Route, Routes } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import StaffRoutes from './modules/staff/routes';
 import StatsRoutes from './modules/stats/routes';
-import { NavLink } from 'react-router-dom';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <NavLink className='link' to='/staff'>
             Staff
           </NavLink>
-          <NavLink className='link' to='/stats/average-age-industry'>
+          <NavLink className='link' to='/stats'>
             Stats
           </NavLink>
         </nav>

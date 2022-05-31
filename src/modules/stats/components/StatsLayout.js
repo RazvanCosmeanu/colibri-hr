@@ -2,8 +2,13 @@ import './StatsLayout.scss';
 
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import useScrollToTop from '../../../lib/useScrollToTop';
+import { useRef } from 'react';
 
 export default function StatsLayout() {
+  const graphContainer = useRef(null);
+  useScrollToTop(graphContainer.current);
+
   return (
     <section id='stats-page'>
       <div className='stats-header'>
@@ -18,7 +23,7 @@ export default function StatsLayout() {
         </nav>
       </div>
 
-      <div className='content'>
+      <div className='content' id='graph-container' ref={graphContainer}>
         <Outlet />
       </div>
     </section>
