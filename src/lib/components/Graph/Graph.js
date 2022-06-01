@@ -1,13 +1,13 @@
 import './Graph.scss';
 
 import id from '../../id';
+import unary from '../../unary';
+import { logFn } from '../../log';
 
-const getBarWidth = (max, value) => {
-  return Math.round((value * 100) / max);
-};
+const getBarWidth = (max = 1, value = 0) => Math.round((value * 100) / max);
 
 export default function Graph({ data, formatValue = id }) {
-  const max = Math.max(...Object.values(data));
+  const max = Math.max(...Object.values(data).map(unary(parseFloat)));
 
   return (
     <div className='graph-component'>

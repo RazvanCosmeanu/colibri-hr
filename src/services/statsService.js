@@ -70,7 +70,7 @@ const calculateAverageSalaryPerIndustry = (staff) => {
     acc[curr] = parseFloat(
       salariesPerIndustry[curr].salaries /
         salariesPerIndustry[curr].entriesLength,
-    ).toPrecision(10);
+    ).toFixed(2);
 
     return acc;
   }, {});
