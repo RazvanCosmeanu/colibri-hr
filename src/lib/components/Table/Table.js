@@ -33,11 +33,11 @@ const Table = (props) => {
   const columns = getColumns(props);
 
   return (
-    <>
-      <div className={classNames('table-component', restProps.className)}>
-        <div className='table-row table-header'>
+    <table className={classNames('table-component', restProps.className)}>
+      <thead>
+        <tr className='table-row table-header'>
           {columns.map((column, idx) => (
-            <div
+            <th
               key={`header-${idx}`}
               className={classNames('table-cell', column.headerClassName)}
             >
@@ -52,24 +52,25 @@ const Table = (props) => {
               ) : (
                 column.title
               )}
-            </div>
+            </th>
           ))}
-        </div>
-
+        </tr>
+      </thead>
+      <tbody>
         {data.map((record) => (
-          <div key={record.id} className={'table-row'}>
+          <tr key={record.id} className={'table-row'}>
             {columns.map((column, idx) => (
-              <div
+              <td
                 key={`${record.id}-${idx}`}
                 className={classNames('table-cell', column.className)}
               >
                 {column.render(record)}
-              </div>
+              </td>
             ))}
-          </div>
+          </tr>
         ))}
-      </div>
-    </>
+      </tbody>
+    </table>
   );
 };
 

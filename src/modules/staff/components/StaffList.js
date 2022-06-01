@@ -21,6 +21,9 @@ export default function StaffList() {
             >
               {'< Previous'}
             </Button>
+            <span className='pages'>
+              Page: {vm.data.meta.page} of {vm.data.meta.totalPages}
+            </span>
             <Button
               disabled={!vm.userCanClickNextPage}
               onClick={vm.userClicksNextPage}

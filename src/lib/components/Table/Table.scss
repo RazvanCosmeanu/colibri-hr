@@ -1,13 +1,10 @@
 @use 'src/styles/colors';
 
 .table-component {
-  display: table;
   width: 100%;
   border-collapse: collapse;
 
   .table-row {
-    display: table-row;
-
     &.table-header {
       border-bottom: 1px solid colors.$text-color-light;
 
@@ -16,6 +13,7 @@
         font-weight: 500;
         line-height: 18px;
         color: colors.$tertiary-color;
+        text-align: start;
       }
 
       .header-button {
@@ -41,7 +39,6 @@
   }
 
   .table-cell {
-    display: table-cell;
     padding: 4px 0px;
     vertical-align: middle;
     color: colors.$text-color-dark;
