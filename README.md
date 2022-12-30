@@ -22,7 +22,7 @@ This project has been initiated with [create-react-app](https://github.com/faceb
 
 ## Screenshots
 
-![Home Screen](docs/screenshots/home.png)
-![Edit Screen](docs/screenshots/edit.png)
-![Details Screen](docs/screenshots/view.png)
-![Stats Screen](docs/screenshots/stats.png)
+![Home Screen](src/screenshots/home.png)
+![Edit Screen](src/screenshots/edit.png)
+![Details Screen](src/screenshots/view.png)
+![Stats Screen](src/screenshots/stats.png)
